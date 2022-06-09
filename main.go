@@ -19,17 +19,20 @@ var (
 	_ = log.Print
 	_ = gin.Default
 	_ = rand.Int
+	_ = time.Sleep
 )
 
 func main() {
-	router := gin.Default()
-	router.LoadHTMLGlob("templates/*.html")
-	router.GET("/", GetIndex)
+	r := gin.Default()
+	r.LoadHTMLGlob("templates/*.html")
+	r.GET("/", GetIndex)
 
-	router.Run(":8080")
-	time.Sleep(time.Second * 5)
+	err := r.Run(":8080")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func GetIndex(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.html", gin.H{})
+	c.HTML(http.StatusOK, "index.html", nil)
 }

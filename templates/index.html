@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body {
+            background-color: #151D3B;
+        }
+        #n1 {
+            color: #D82148;
+            font-size: 50px;
+            font-family: "Arial Black", Gadget, sans-serif;
+            position: absolute; top: 200px; right: 500px;
+        }
+    </style>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,17 +28,24 @@
             Http.send();
 
             Http.onreadystatechange = (e) => {
-                var response = Http.response;
-                var data = JSON.parse(response);
-                document.getElementById("number").innerHTML = data.number;
+                const response = Http.response;
+                const data = JSON.parse(response);
+                document.getElementById("n1_amount").innerHTML = data.amount;
+                document.getElementById("n1_name").innerHTML = data.name + ":";
+                document.getElementById("n1_speed").innerHTML = "(" + data.speed + ")";
                 }
             }
-    window.onload = getNumber;
-    window.setInterval(getNumber, 1000);
+        window.onload = getNumber;
+        window.setInterval(getNumber, 1000);
     </script>
 </head>
 <body>
-    <p id="number"> 0 </p>
-
+    <div>
+        <p id="n1">
+            <span id="n1_name">name</span>
+            <span id="n1_amount">0</span>
+            <span id="n1_speed">1.0</span>
+        </p>
+    </div>
 </body>
 </html>
