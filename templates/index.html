@@ -16,12 +16,9 @@
             color: #D82148;
             font-size: 50px;
             font-family: "Arial Black", Gadget, sans-serif;
-            position: absolute; top: 200px; right: 500px;
         }
     </style>
  
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script>
         const url = 'http://localhost:9090/';
         
@@ -34,16 +31,17 @@
             })
             .then(response => response.json())
             .then(data => {
-                var amount = data.amount.toString().split(".")[0];
+                const item = data[0];
+                var amount = item.amount.toString().split(".")[0];
                 document.getElementById("n1_amount").innerHTML = amount;
-                document.getElementById("n1_name").innerHTML = data.name + ":";
-                document.getElementById("n1_speed").innerHTML = "(" + data.speed + ")";
+                document.getElementById("n1_name").innerHTML = item.name + ":";
+                document.getElementById("n1_speed").innerHTML = "(" + item.speed + ")";
             });
         }
         onload = getJson;
         setInterval(getJson, 1000);
 
-        async function speed_increase(increase) {
+        async function speed_increase() {
             await fetch(url + 'config', {
                 method: 'POST',
                 cache: 'no-cache',
@@ -61,7 +59,6 @@
     </script>
 </head>
 <body>
-    <div id="main">
         <p id="n1">
             <span id="n1_name">name</span>
             <span id="n1_amount">0</span>
