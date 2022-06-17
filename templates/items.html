@@ -12,18 +12,22 @@
             max-width: 90%;
         }
         table {
-            margin-left: 10px;
-            border-spacing: 5px;
+            margin-left: 20px;
+            border-spacing: 8px;
         }
-        th, td {
-            font-size: 180%;
-            border-bottom: 1px solid aqua;
+        
+        td {
+            background-color: #0c1b50;
+            font-size: 250%;
             margin-top: 10px;
-            color: #DADBBD;
+            color: #D82148;
+        }
+        th {
         }
         #main_div {
             display: flex;
             justify-content: center;
+            align-items: flex-start;
             margin: 100px auto auto 50px;
         }
 
@@ -34,7 +38,7 @@
         getJson()
 
         let _columns = 3
-        let _rows = 10
+        let _rows = 40
 
         async function getJson() {
             await fetch(url, {
@@ -76,10 +80,9 @@
         async function sleep(ms) {
             return await new Promise(resolve => setTimeout(resolve, ms));
         }
-        onload = x2;
     </script>
 </head>
-<body>
+<body onload="x2()">
     <p id="a1"></p>
     <div class="mmm" id="main_div">
     </div>

@@ -27,6 +27,7 @@ func main() {
 	r.LoadHTMLGlob("templates/*.html")
 	r.GET("/", GetIndex)
 	r.GET("/user/:username/items", GetResources)
+	r.GET("/test", GetTest)
 
 	err := r.Run(":8080")
 	if err != nil {
@@ -39,4 +40,7 @@ func GetIndex(c *gin.Context) {
 }
 func GetResources(c *gin.Context) {
 	c.HTML(http.StatusOK, "items.html", nil)
+}
+func GetTest(c *gin.Context) {
+	c.HTML(http.StatusOK, "test.html", nil)
 }
