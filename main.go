@@ -25,6 +25,9 @@ var (
 func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*.html")
+	r.Static("./css", "./css")
+	r.Static("./modules", "./modules")
+
 	r.GET("/", GetIndex)
 	r.GET("/user/:username/items", GetResources)
 	r.GET("/test", GetTest)

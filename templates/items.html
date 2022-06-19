@@ -6,85 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-        body {
-            background-color: #151D3B;
-            max-width: 90%;
-        }
-        table {
-            margin-left: 20px;
-            border-spacing: 8px;
-        }
-        
-        td {
-            background-color: #0c1b50;
-            font-size: 250%;
-            margin-top: 10px;
-            color: #D82148;
-        }
-        th {
-        }
-        #main_div {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 100px auto auto 50px;
-        }
-
-    </style>
-    <script>
-        const url = 'http://localhost:9090/';
-        var s_data;
-        getJson()
-
-        let _columns = 3
-        let _rows = 40
-
-        async function getJson() {
-            await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(data => s_data = data)
-        }
-        function x2() {
-            const dn = document.getElementById("main_div");
-            d_length = 0;
-            d_max = s_data.length -1;
-            d_keys = ["name", "amount", "speed"];
-            for (let i = 0; i < _columns; i++) {
-                var q1 = document.createElement("table");
-                dn.appendChild(q1); 
-
-                while (dn.children[i].children.length < _rows && d_length < d_max) {
-                    console.log(d_length)
-                    d_length ++;
-                    dn.children[i].appendChild(addTd(d_keys, s_data[d_length]));
-
-                }
-            }
-        }
-        function addTd(keys, data) {
-            var x = document.createElement("tr");
-            for (let i = 0; i < 3; i++) {
-                var y = document.createElement("td");
-                y.innerText = data[keys[i]];
-                x.appendChild(y);
-            }
-            return x;
-            
-        }
-        async function sleep(ms) {
-            return await new Promise(resolve => setTimeout(resolve, ms));
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"> 
+    <script type="text/javascript" src="/modules/script.js"></script>
+    /* req to load static from back-end(go) */
+    
 </head>
 <body onload="x2()">
-    <p id="a1"></p>
-    <div class="mmm" id="main_div">
+    <div class="main_" id="main_div">
     </div>
 </body>
 </html>
