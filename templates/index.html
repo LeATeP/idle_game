@@ -38,8 +38,6 @@
                 document.getElementById("n1_speed").innerHTML = "(" + item.speed + ")";
             });
         }
-        onload = getJson;
-        setInterval(getJson, 1000);
 
         async function speed_increase() {
             await fetch(url + 'config', {
@@ -56,6 +54,10 @@
             });
             return response.json();
         }
+    </script>
+    <script defer>
+        getJson();
+        setInterval(getJson, 1000);
     </script>
 </head>
 <body>

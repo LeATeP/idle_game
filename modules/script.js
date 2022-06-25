@@ -18,6 +18,18 @@ async function getJson() {
 async function sleep(ms) {
     return await new Promise(resolve => setTimeout(resolve, ms));
 }
+async function updateCellsData() {
+    await getJson();
+    const main_div = document.getElementById("main_flex");
+    const cells_length = main_div.children.length -1; 
+    const data_length = s_data.length;
+    for (let i = 0; i < cells_length && i < data_length; i++) {
+        var newString = formatID(s_data[i].id.toString()) 
+        main_div.children[i].children[0].innerText = newString;
+        main_div.children[i].children[1].innerText = s_data[i].name.toString();
+        main_div.children[i].children[2].innerText = s_data[i].amount.toString();
+    }
+}
 
 async function makeMainElement() {
     await getJson();
@@ -32,7 +44,7 @@ function appendNewDiv(keys, data) {
     for (let i = 0; i < 3; i++) {
         var y = document.createElement("span");
         var content = data[keys[i]].toString();
-        content = formatString(content, name_keys[i]);
+        content = formatID(content, name_keys[i]);
         y.classList.add('cell_' + name_keys[i]);
         y.classList.add('cell_all');
         y.innerText = content;
@@ -40,8 +52,8 @@ function appendNewDiv(keys, data) {
     }
     return n
 }
-function formatString(content, key) {
-    if (content.length == 1 && key == 'id') {
+function formatID(content) {
+    if (content.length == 1) {
         content = ' '.repeat(2) + content
     }
     return content
