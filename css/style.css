@@ -1,20 +1,65 @@
+/* body { */
+    /* background-color: #151D3B; */
+    /* max-width: 90%; */
+/* } */
+/* .main_ table { */
+    /* margin-left: 20px; */
+    /* border-spacing: 8px; */
+/* } */
+/* .main_ td { */
+    /* background-color: #0c1b50; */
+    /* font-size: 250%; */
+    /* margin-top: 10px; */
+    /* color: #D82148; */
+/* } */
+/* .main_ { */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+    /* margin: 100px auto auto 50px; */
+/* } */
+
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
     background-color: #151D3B;
-    max-width: 90%;
 }
-.main_ table {
-    margin-left: 20px;
-    border-spacing: 8px;
-}
-.main_ td {
-    background-color: #0c1b50;
-    font-size: 250%;
-    margin-top: 10px;
-    color: #D82148;
-}
+
 .main_ {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin: 100px auto auto 50px;
 }
+
+.flex_ {
+    display: flex;
+    font-size: 40px;
+    flex: 0 1 1500px;
+    color: white;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.row {
+    display: flex;
+    margin: 3px;
+    flex: 1 1 400px;
+}
+
+.cell_all {
+    white-space: pre;
+}
+.cell_id {
+    margin-right: 10px;
+}
+.cell_name {
+    flex: 0 0 250px;
+}
+.cell {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: solid 1px;
+
+}
+

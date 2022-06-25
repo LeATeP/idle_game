@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!-- req to load static from back-end(go) -->
     <link rel="stylesheet" type="text/css" href="/css/style.css"> 
     <script type="text/javascript" src="/modules/script.js"></script>
-    /* req to load static from back-end(go) */
-    
+
+    <script defer>
+        makeMainElement();
+    </script>
 </head>
-<body onload="x2()">
+<body>
+    <h1>Idle Game</h1>
     <div class="main_" id="main_div">
+        <div class="flex_" id="main_flex"></div>
     </div>
 </body>
 </html>
